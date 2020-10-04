@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">My_new_MAD</string>
+    <string name="monthly_income">MONTHLY INCOME</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="income_type">Income Type</string>
+    <string name="income_amount">Income Amount</string>
+    <string name="view">View All</string>
+    <string name="id">ID</string>
+    <string name="update">Update</string>
+    <string name="Delete">Delete</string>
+    <string name="note">NOTE: You need to enter ID Display Data</string>
+    <string name="invalid_name">Please Enter Month</string>
+    <string name="next">NEXT</string>
+    <string name="add">+</string>
+</resources>
