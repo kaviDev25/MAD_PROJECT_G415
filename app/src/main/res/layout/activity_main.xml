@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/whatsapp_image_2020_10_02_at_09_45_10"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.0"
+app:layout_constraintStart_toStartOf="parent"
+tools:layout_editor_absoluteY="0dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="178dp"
+        android:layout_height="180dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="62dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="6dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FDD835">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="135dp"
+                android:layout_height="120dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="22dp"
+                app:srcCompat="@drawable/payment" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="115dp"
+                android:layout_height="34dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:layout_marginEnd="27dp"
+                android:layout_marginBottom="9dp"
+                android:text="Business Bill"
+                android:textColor="#322E2E"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="38dp" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/card2"
+    android:layout_width="178dp"
+    android:layout_height="180dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true"
+    android:layout_marginStart="203dp"
+    android:layout_marginTop="200dp"
+    android:layout_marginEnd="18dp"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00897B">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="135dp"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="18dp"
+            app:srcCompat="@drawable/banknote" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="115dp"
+            android:layout_height="34dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="51dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="14dp"
+            android:text=" Income"
+            android:textColor="#322E2E"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="38dp" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/card3"
+    android:layout_width="178dp"
+    android:layout_height="180dp"
+    android:layout_below="@+id/card1"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentEnd="false"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginEnd="43dp"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#70C8F3">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="136dp"
+            android:layout_height="93dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="32dp"
+            app:srcCompat="@drawable/utilities" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="144dp"
+            android:layout_height="39dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="12dp"
+            android:text=" Personal Bill"
+            android:textColor="#322E2E"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="38dp" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/card4"
+    android:layout_width="178dp"
+    android:layout_height="180dp"
+    android:layout_below="@+id/card2"
+    android:layout_alignParentEnd="true"
+    android:layout_marginStart="-30dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginEnd="18dp"
+    android:layout_toEndOf="@+id/card3"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B3AFAF">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="135dp"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="22dp"
+            app:srcCompat="@drawable/money_bag__1_" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="115dp"
+            android:layout_height="34dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="15dp"
+            android:text="Budget"
+            android:textColor="#322E2E"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="38dp" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+
+<TextView
+    android:id="@+id/textView4"
+    android:layout_width="wrap_content"
+    android:layout_height="96dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="42dp"
+    android:fontFamily="sans-serif"
+    android:text="Mobills Tracker"
+    android:textColor="#6BE1D5"
+    android:textSize="40sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/textView5"
+    android:layout_width="285dp"
+    android:layout_height="39dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true"
+    android:layout_marginStart="11dp"
+    android:layout_marginTop="112dp"
+    android:layout_marginEnd="97dp"
+    android:text="Save Your Money"
+    android:textColor="#00897B"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent" />
+</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

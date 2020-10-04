@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Mobills Tracker</string>
+    <string name="category">Category</string>
+    <string name="add_a_new_bill">Add a New Bill</string>
+
+    <string name="amount">Amount(RS.)</string>
+
+    <string name="bill_category">Bill Category</string>
+    <string name="due_date">Due Date</string>
+    <string name="add_bill">ADD BILL</string>
+    <string name="paid">Paid</string>
+    <string name="textview">TextView</string>
+</resources>
