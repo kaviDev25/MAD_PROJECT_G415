@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- IT19097084
+        Ayodya Hettiarachchi-->
+    <color name="colorPrimary">#FD6A02</color>
+    <color name="colorPrimaryDark">#F05E23</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="headerText">#FFC581</color>
+    <color name="buttons">#15B6AB</color>
+    <color name="buttonText">#FFFFFF</color>
+    <color name="cardBackground">#525252</color>
+
+</resources>
+
+
