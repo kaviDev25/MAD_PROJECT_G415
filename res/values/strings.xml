@@ -1,0 +1,46 @@
+<resources>
+    <!-- IT19097084
+        Ayodya Hettiarachchi-->
+    <string name="app_name">Budgets</string>
+
+    <!--main activity (budget list)-->
+    <string name="bName">Name of Budget</string>
+    <string name="topNavList">Budgets</string>
+
+    <!--create budget-->
+    <string name="bAmount">Target Expenditure</string>
+    <string name="bNotes">Notes</string>
+    <string name="createbtn">Create</string>
+    <string name="topNavCreate">Create Budget</string>
+
+    <!--view existing budget-->
+    <string name="modifybtn">Modify</string>
+    <string name="demoBudgetSpentValue">$600</string>
+    <string name="addExpense">Add an Expense</string>
+    <string name="addExpenseBtn">Add</string>
+    <string name="removeExp">Remove an Expense</string>
+    <string name="removeExpBtn">Remove</string>
+    <string name="totalExp">Total Spent</string>
+    <string name="target">Target Expenditure</string>
+    <string name="demoTargetValue">$1000</string>
+    <string name="underBudgetText">Unspent</string>
+    <string name="underBudgetValue">$400</string>
+    <string name="topNavShowExisting">House Redecoration Budget</string>
+
+    <!--modify budget-->
+    <string name="topNavModify">Modify Existing Budget</string>
+    <string name="currentName">Current Name:</string>
+    <string name="changeName">Change Name of Budget</string>
+    <string name="currentTarget">Current Target Expenditure:</string>
+    <string name="changeTarget">Change Target Expenditure</string>
+    <string name="currentNameDemo">House Redecoration Budget</string>
+    <string name="currentTargetDemo">$1000</string>
+    <string name="saveChangesBtn">Save and Apply Changes</string>
+    <string name="deleteBtn">Delete Budget</string>
+
+    <string name="navigationBurger">Navigate</string>
+
+    <!--other hardcoded variables-->
+    <string name = "textView">TextView</string>
+
+</resources>
