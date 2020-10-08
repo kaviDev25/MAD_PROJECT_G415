@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.List;
-
+//IT19753836
 
 public class Adapter extends ArrayAdapter<ModelClass> {
     private Context context;

@@ -11,30 +11,42 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.bills.ShowBudgets.BudgetEntry.BUDGETS_LIST_TABLE_NAME;
+
 public class DBHandler extends SQLiteOpenHelper {
 
-    private static final int VERSION = 7;
+    private static final int VERSION = 9;
     private static final String DB_NAME = "MobillsTracker";
-    private static final String TABLE_NAME = "personalBill";
+    private static final String TABLE_NAME = "personalBill";//IT19218472
+    private static final String IN_TABLE_NAME="Income_table";//IT19073156
+    private static final String B_TABLE_NAME = "bills";//IT19753836
 
-    //Column names of personalBill table
+    //Column names of personalBill table IT19218472
     private static final String ID = "id";
     private static final String CATEGORY = "category";
     private static final String AMOUNT = "amount";
     private static final String DUEDATE = "dueDate";
     private static final String PAIDAMOUNT = "paidAmount";
-    private static final String B_TABLE_NAME = "bills";
+
+    //IT19753836
     private static final String B_ID = "B_id";
     private static final String TYPE = "type";
     private static final String B_AMOUNT = "B_amount";
     private static final String STARTED = "started";
     private static final String FINISHED = "finished";
 
+    //IT19073156
+    private static final String col_1="id";
+    private static final String col_2="year";
+    private static final String col_3="month";
+    private static final String col_4="income_type";
+    private static final String col_5="income_amount";
+
     public DBHandler(@Nullable Context context) {
         super(context, DB_NAME, null , VERSION);
     }
     @Override
-    //create personalBill table
+    //create personalBill table IT19218472
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String TABLE_CREATE_QUERY = "CREATE TABLE " + TABLE_NAME + " " + "("
                 + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -43,8 +55,9 @@ public class DBHandler extends SQLiteOpenHelper {
                 + DUEDATE + " TEXT,"
                 + PAIDAMOUNT + " DOUBLE "
                 + ");";
-
         sqLiteDatabase.execSQL(TABLE_CREATE_QUERY);
+
+        //IT19753836
         String TABLE_CREATE_B = "CREATE TABLE " + B_TABLE_NAME + " " +
                 "("
                 + B_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -54,11 +67,31 @@ public class DBHandler extends SQLiteOpenHelper {
                 + FINISHED + " TEXT" +
                 ");";
         sqLiteDatabase.execSQL(TABLE_CREATE_B);
+
+        //IT19097084
+        final String SQL_CREATE_BUDGETLIST_TABLE = "CREATE TABLE " +
+                BUDGETS_LIST_TABLE_NAME +"("+
+                ShowBudgets.BudgetEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                ShowBudgets.BudgetEntry.AVAILABLE_BUDGETS_COLUMN  + " TEXT NOT NULL, " +
+                ShowBudgets.BudgetEntry.BUDGETS_TARGET_SPENDING_COLUMN  + " TEXT NOT NULL," +
+                ShowBudgets.BudgetEntry.BUDGET_NOTES  + " TEXT, " +
+                ShowBudgets.BudgetEntry.BUDGETS_TOTAL_SPENT + " TEXT, " +
+                ShowBudgets.BudgetEntry.BUDGETS_REMAINDER + " TEXT, " +
+                ShowBudgets.BudgetEntry.BUDGETS_ADD_COLUMN + " TEXT, " +
+                ShowBudgets.BudgetEntry.BUDGETS_REMOVE_COLUMN + " TEXT, " +
+                ShowBudgets.BudgetEntry.BUDGETS_COLUMN_TIMESTAMP  + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP "  +
+                ");";
+        //execute statement for database
+        sqLiteDatabase.execSQL(SQL_CREATE_BUDGETLIST_TABLE);
+
+        //IT19073156
+        sqLiteDatabase.execSQL("create table "+IN_TABLE_NAME+"(id INTEGER PRIMARY KEY AUTOINCREMENT, year TEXT,month TEXT,income_type TEXT,income_amount TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+        //IT19218472
         String DROP_TABLE_QUERY = "DROP TABLE IF EXISTS "+ TABLE_NAME;
         sqLiteDatabase.execSQL(DROP_TABLE_QUERY);
 
@@ -66,9 +99,16 @@ public class DBHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(DROP_TABLE_B);
         onCreate(sqLiteDatabase);
 
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + BUDGETS_LIST_TABLE_NAME);
+        onCreate(sqLiteDatabase);
+
+        //IT19073156
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+IN_TABLE_NAME);
+        onCreate(sqLiteDatabase);
+
     }
 
-    //insert data into personalBill table
+    //insert data into personalBill table IT19218472
     public void addBill(personalBill pBill) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
@@ -85,7 +125,7 @@ public class DBHandler extends SQLiteOpenHelper {
         sqLiteDatabase.close();
     }
 
-    //retrieve all data from personalBill table and view on list
+    //retrieve all data from personalBill table and view on list IT19218472
     public List<personalBill> getAllBills() {
         List<personalBill> bills = new ArrayList();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
@@ -140,7 +180,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return null;
     }
 
-    //update a bill
+    //update a bill IT19218472
     public int updateSingleBill(personalBill personalb){
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
@@ -159,7 +199,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return status;
 
     }
-    //delete bill of selected item in list view
+    //delete bill of selected item in list view IT19218472
     public void deleteBill(int id){
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
@@ -167,6 +207,7 @@ public class DBHandler extends SQLiteOpenHelper {
         sqLiteDatabase.close();
     }
 
+    //IT19753836
     public void addBill(ModelClass model) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -183,6 +224,8 @@ public class DBHandler extends SQLiteOpenHelper {
         sqLiteDatabase.delete(B_TABLE_NAME, B_ID +" =?", new String[]{String.valueOf(B_id)});
         sqLiteDatabase.close();
     }
+
+    //IT19753836
     public int updateBill(ModelClass model){
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
@@ -198,6 +241,8 @@ public class DBHandler extends SQLiteOpenHelper {
         return status;
 
     }
+
+    //IT19753836
     public int countBill() {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         String query = "SELECT * FROM " + B_TABLE_NAME;
@@ -206,6 +251,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return cursor.getCount();
     }
 
+    //IT19753836
     public ModelClass GetSingleBill(int id) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         Cursor cursor = sqLiteDatabase.query(B_TABLE_NAME, new String[]{B_ID, TYPE, B_AMOUNT,STARTED, FINISHED},
@@ -228,6 +274,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return null;
     }
 
+    //IT19753836
     List<ModelClass> GetAllBills() {
         List<ModelClass> model = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
@@ -247,6 +294,50 @@ public class DBHandler extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         return model;
+    }
+
+    //IT19073156
+    public boolean insertData(String year,String month,String income_type, String income_amount){
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(col_2,year);
+        contentValues.put(col_3,month);
+        contentValues.put(col_4,income_type);
+        contentValues.put(col_5,income_amount);
+        long result =db.insert(IN_TABLE_NAME,null,contentValues);
+        if(result==-1){
+            return false;
+        }else
+        {
+            return true;
+        }
+    }
+
+    //IT19073156
+    public Cursor getallData(){
+        SQLiteDatabase db= this.getWritableDatabase();
+        Cursor res=db.rawQuery("select * from "+IN_TABLE_NAME,null);
+        return res;
+    }
+
+    //IT19073156
+    public boolean updateData(String id,String year,String month,String income_type, String income_amount){
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(col_1,id);
+        contentValues.put(col_2,year);
+        contentValues.put(col_3,month);
+        contentValues.put(col_4,income_type);
+        contentValues.put(col_5,income_amount);
+        db.update(IN_TABLE_NAME,contentValues,"id=?",new String[]{id});
+        return true;
+    }
+
+    //IT19073156
+    public Integer deleteData(String id){
+        SQLiteDatabase db= this.getWritableDatabase();
+        return db.delete(IN_TABLE_NAME,"ID=?",new String[]{id});
+
     }
 
 }

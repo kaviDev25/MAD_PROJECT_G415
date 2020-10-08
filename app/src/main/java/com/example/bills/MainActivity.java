@@ -29,11 +29,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        //card view 1 to direct business bill feature
         card_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent j = new Intent(MainActivity.this,BusinessBills.class);
                 startActivity(j);
+            }
+        });
+
+        //card view 4 to direct income feature
+        card_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i2 = new Intent(MainActivity.this,listBudgets.class);
+                startActivity(i2);
+            }
+        });
+
+        //card view 2 to direct income feature
+        card_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,MainActivity2.class);
+                startActivity(i);
             }
         });
     }

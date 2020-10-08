@@ -15,6 +15,21 @@
         <activity android:name=".BusinessBills"/>
         <activity android:name=".EditBill" />
         <activity android:name=".AddBuBill" />
+        <activity android:name=".Cal"></activity>
+        <activity android:name=".MainActivity2"/>
+        <activity
+            android:name=".listComponent"
+            android:theme= "@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ModifyBudget"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewExistingBudget"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateNewBudget"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
